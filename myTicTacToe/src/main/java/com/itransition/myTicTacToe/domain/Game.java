@@ -60,4 +60,10 @@ public class Game {
 
     @Column(name = "created", nullable = false)
     private Date created;
+    
+    @Column(name = "gameName")
+    private String gameName;
+    
+    @Column(name = "tags")
+    private String tags;
 }

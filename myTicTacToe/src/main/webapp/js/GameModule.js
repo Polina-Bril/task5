@@ -121,6 +121,7 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 scope.errorMessage = "Failed to load moves in game"
             });
         }
+//       setInterval(getMoveHistory(), 2);
 
         function checkPlayerTurn() {
             return http.get('/move/turn').success(function (data) {
@@ -141,7 +142,9 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 getMoveHistory().success(function () {
                     var gameStatus = scope.movesInGame[scope.movesInGame.length - 1].gameStatus;
                     if (gameStatus != 'IN_PROGRESS') {
-                        alert(gameStatus)
+                        alert(gameStatus);
+//                        window.location = '/#/player/panel';
+                        
                     }
                 });
             }).error(function (data, status, headers, config) {
@@ -209,8 +212,10 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                                 var gameStatus = scope.movesInGame[scope.movesInGame.length - 1].gameStatus;
                                 if (gameStatus == 'IN_PROGRESS') {
                                     getNextMove();
-                                } else {
-                                    alert(gameStatus)
+                                } else if(gameStatus!="WAITS_FOR_PLAYER"){
+                                    alert(gameStatus);
+                                    window.location = '/#/player/panel';
+                                    
                                 }
                             });
 

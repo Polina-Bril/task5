@@ -29,6 +29,23 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label for="gameName" class="col-md-2 control-label">Name
+						of the game:</label>
+					<div class="col-md-8">
+						<input name="gameName" id="gameName" class="form-control"
+							ng-model="newGameData.gameName"
+							placeholder="write the name of new game">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="tags" class="col-md-2 control-label">Tags:</label>
+					<div class="col-md-8">
+						<input type="text" name="tags" id="tags" class="form-control"
+							ng-model="newGameData.tags" placeholder="write some tags"
+							value="Minsk, Angelika, 100$">
+					</div>
+				</div>
+				<div class="form-group">
 					<div class="col-sm-offset-4 col-sm-6" style="padding-bottom: 50px">
 						<button type="submit" class="btn btn-md btn-primary"
 							ng-disabled="createNewGame.$invalid">
@@ -39,29 +56,35 @@
 			</form>
 		</div>
 		<div class="col-md-6" ng-controller="gamesToJoinController">
-			<table class="table table-hover table-striped table-condensed"
-				ng-show="gamesToJoin.length">
-				<h2 class="lead">Join existing game</h2>
-				<thead>
-					<td>Started player</td>
-					<td>Game status</td>
-					<td>Created</td>
-					<td></td>
-				</thead>
-				<tbody>
-					<tr ng-repeat="game in gamesToJoin">
-						<td>{{game.firstPlayer.userName}}</td>
-						<td>{{game.gameStatus}}</td>
-						<td>{{game.created | date:'MM-dd-yyyy HH:mm:ss'}}</td>
-						<td>
-							<button type="submit" class="btn btn-sm"
-								ng-click="joinGame(game.id)">
-								<span class="glyphicon glyphicon-plus"></span> Join
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+
+			<h2 class="lead">Join existing game</h2>
+			
+			<div class="card-deck" ng-show="gamesToJoin.length">
+
+				<div class="row">
+
+					<div ng-repeat="game in gamesToJoin">
+						<div class="col-md-4">
+							<div class="card text-white bg-info mb-3">
+								<h5 class="card-header">Started player:
+									{{game.firstPlayer.userName}}</h5>
+								<p class="card-text">Game name: {{game.gameName}}</p>
+								<p class="card-text">Game tags: {{game.tags}}</p>
+								<p class="card-text">Created: {{game.created |
+									date:'MM-dd-yyyy HH:mm:ss'}}</p>
+								<button type="submit" class="btn btn-sm"
+									ng-click="joinGame(game.id)">
+									<span class="glyphicon glyphicon-plus"></span> Join
+								</button>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+
 			<div ng-show="!gamesToJoin.length">No games to join.</div>
 		</div>
 		<div class="col-md-6" ng-controller="playerGamesController">
@@ -78,16 +101,14 @@
 				<tbody>
 					<tr ng-repeat="game in playerGames">
 						<td>{{game.firstPlayer.userName}}</td>
-						<td>
-							<span ng-if="!game.player.userName"> COMPUTER </span> 
-							<span ng-if="game.player.userName != ''">{{game.secondPlayer.userName}}</span>
+						<td><span ng-if="!game.player.userName"> COMPUTER </span> <span
+							ng-if="game.player.userName != ''">{{game.secondPlayer.userName}}</span>
 						</td>
 						<td>{{game.gameStatus}}</td>
 						<td>{{game.created | date:'MM-dd-yyyy HH:mm:ss'}}</td>
 						<td>
 							<button class="btn btn-sm" ng-click="loadGame(game.id)">
-								<span class="glyphicon glyphicon-plus"></span> 
-								Load game
+								<span class="glyphicon glyphicon-plus"></span> Load game
 							</button>
 							</button>
 						</td>
@@ -98,3 +119,24 @@
 		</div>
 	</div>
 </div>
+<script>
+	var input = document.querySelector('input[name="tags"]'), tagify = new Tagify(
+			input, {
+				whitelist : [ "Ala", "Mary", "100$", "50$", "5$", "10$",
+						"Minsk", "Grodno", "Brest", "Moscow", "Piter", "Sasha",
+						"Pasha", "Vitebsk", "Homel", "Magilev", "Baranovichi",
+						"Ada", "Adenine", "Agda", "Agora", "AIMMS", "Alef",
+						"Alice", "Averest", "AWK", "Axum", "BETA", "Bigwig",
+						"Bistro", "BitC", "BLISS", "Blockly", "BlooP", "Blue",
+						"Boo", "Cayenne", "CDuce", "Cecil", "Cesil", "Céu",
+						"Ceylon" ],
+				maxTags : 10,
+				dropdown : {
+					maxItems : 20,
+					classname : "tags-look",
+					enabled : 0,
+					closeOnSelect : false
+				}
+			})
+</script>
+
