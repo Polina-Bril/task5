@@ -19,7 +19,21 @@ gameModule.controller('newGameController', ['$rootScope', '$scope', '$http', '$l
             ],
             selectedBoardDimension: {name: 'COMPUTER'}
         };
-
+        var input = document.querySelector('input[name="tags"]'), 
+		tagify = new Tagify(input, {
+				whitelist : [ "Ala", "Mary", "100$", "50$", "5$", "10$",
+						"Minsk", "Grodno", "Brest", "Moscow", "Piter", "Sasha",
+						"Pasha", "Vitebsk", "Homel", "Magilev", "Baranovichi",
+						"Ada" ],
+				maxTags : 10,
+				dropdown : {
+					maxItems : 20,
+					classname : "tags-look",
+					enabled : 0,
+					closeOnSelect : false
+				}
+			});
+			scope.tags={tags: '$input'};
         scope.createNewGame = function () {
 
             var data = scope.newGameData;
@@ -45,13 +59,36 @@ gameModule.controller('gamesToJoinController', ['$scope', '$http', '$location',
     function (scope, http, location) {
 
         scope.gamesToJoin = [];
+          var input = document.querySelector('input[name="taga"]'), 
+		tagify = new Tagify(input, {
+				whitelist : [ "Ala", "Mary", "100$", "50$", "5$", "10$",
+						"Minsk", "Grodno", "Brest", "Moscow", "Piter", "Sasha",
+						"Pasha", "Vitebsk", "Homel", "Magilev", "Baranovichi",
+						"Ada" ],
+				maxTags : 10,
+				dropdown : {
+					maxItems : 20,
+					classname : "tags-look",
+					enabled : 0,
+					closeOnSelect : false
+				}
+			});
 
         http.get('/game/list').success(function (data) {
             scope.gamesToJoin = data;
         }).error(function (data, status, headers, config) {
             location.path('/player/panel');
         });
-
+//		scope.filterNewGame=function(input){
+//			forEach(let g:scope.gamesToJoin){
+//				let count=0;
+//				forEach(let t:input){
+//					if(g.tags.contains(t)){
+//						count++;
+//					}
+//				}
+//				if(count==0) delete(g);
+//		}};
 
         scope.joinGame = function (id) {
 
