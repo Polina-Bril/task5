@@ -3,70 +3,73 @@
 <html ng-app="myTicTacToe">
 
 <head>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/application.css">
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/application.css">
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-postman/js/postman.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-postman/js/postman.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
 
-    <script src="js/application.js"></script>
-    <script src="js/GameModule.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+<script
+	src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 
-    <style>
-        .Border {
-            max-width: 90%;
-            padding: 20px 20px 5px 30px;
-            margin: 40px auto;
-            background-color: #b3bde0;
+<script src="js/application.js"></script>
+<script src="js/GameModule.js"></script>
 
-            border: 0px solid #1d3063;
-            border-radius: 8px;
-            -webkit-border-radius: 8px;
-            -moz-border-radius: 8px;
-            -khtml-border-radius: 8px;
-        }
+<style>
+.Border {
+	max-width: 90%;
+	padding: 20px 20px 5px 30px;
+	margin: 40px auto;
+	background-color: #b3bde0;
+	border: 0px solid #1d3063;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+}
 
-        .Border .BorderTitle {
-            font-size: 1.125em;
-            font-weight: bold;
-            margin-top: 0px;
-        }
-    </style>
+.Border .BorderTitle {
+	font-size: 1.125em;
+	font-weight: bold;
+	margin-top: 0px;
+}
+</style>
 </head>
 
 
 <body>
 
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">TicTacToe game</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#/about">About</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a><strong><logged-user/></strong></a></li>
-                    <li><a href="/login?logout">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">TicTacToe game</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#/about">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a><strong><logged-user /></strong></a></li>
+					<li><a href="/login?logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <div ng-view="name"></div>
+	<div ng-view="name"></div>
 
-    <footer class="text-center">
-        TicTacToe in Spring Boot and Angular JS
-    </footer>
+	<footer class="text-center"> TicTacToe in Spring Boot and
+		Angular JS </footer>
 
 </body>
 </html>

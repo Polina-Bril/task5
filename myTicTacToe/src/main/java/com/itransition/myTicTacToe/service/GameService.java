@@ -53,7 +53,7 @@ public class GameService {
 	}
 
 	public Game joinGame(Player player, GameDTO gameDTO) {
-		Game game = getGame((long)gameDTO.getId());
+		Game game = getGame((long) gameDTO.getId());
 		game.setSecondPlayer(player);
 		updateGameStatus(game, GameStatus.IN_PROGRESS);
 		gameRepository.save(game);
@@ -62,7 +62,8 @@ public class GameService {
 
 	public List<Game> getPlayerGames(Player player) {
 		return gameRepository.findByGameStatus(GameStatus.IN_PROGRESS).stream()
-				.filter(game -> game.getFirstPlayer() == player||game.getSecondPlayer() == player).collect(Collectors.toList());
+				.filter(game -> game.getFirstPlayer() == player || game.getSecondPlayer() == player)
+				.collect(Collectors.toList());
 	}
 
 	public Game getGame(Long id) {

@@ -12,8 +12,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateMoveDTO {
-    @NotNull
-    int boardRow;
-    @NotNull
-    int boardColumn;
+	@NotNull
+	int boardRow;
+	@NotNull
+	int boardColumn;
 }

@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 public class PlayerDTO {
 
-    @NotNull
-    private String userName;
-    @NotNull
-    private String password;
-    @NotNull
-    private String email;
+	@NotNull
+	private String userName;
+	@NotNull
+	private String password;
+	@NotNull
+	private String email;
 }

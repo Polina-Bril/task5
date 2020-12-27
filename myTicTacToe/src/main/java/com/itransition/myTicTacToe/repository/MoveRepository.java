@@ -11,7 +11,9 @@ import java.util.List;
 @Repository
 public interface MoveRepository extends CrudRepository<Move, Long> {
 
-    List<Move> findByGame(Game game);
-    List<Move> findByGameAndPlayer(Game game, Player player);
-    int countByGameAndPlayer(Game game, Player player);
+	List<Move> findByGame(Game game);
+
+	List<Move> findByGameAndPlayer(Game game, Player player);
+
+	int countByGameAndPlayer(Game game, Player player);
 }

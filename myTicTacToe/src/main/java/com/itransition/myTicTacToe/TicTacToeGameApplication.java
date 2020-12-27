@@ -16,11 +16,11 @@ public class TicTacToeGameApplication {
 		SpringApplication.run(TicTacToeGameApplication.class, args);
 	}
 
-    @Bean
-    public CommandLineRunner demo(PlayerRepository playerRepository) {
-        return (args) -> {
-            playerRepository.save(new Player("ala", "ala@ala.com", new BCryptPasswordEncoder().encode("ala")));
-            playerRepository.save(new Player("mary", "mary@mary.com",  new BCryptPasswordEncoder().encode("mary")));
-        };
-    }
+	@Bean
+	public CommandLineRunner demo(PlayerRepository playerRepository) {
+		return (args) -> {
+			playerRepository.save(new Player("ala", "ala@ala.com", new BCryptPasswordEncoder().encode("ala")));
+			playerRepository.save(new Player("mary", "mary@mary.com", new BCryptPasswordEncoder().encode("mary")));
+		};
+	}
 }

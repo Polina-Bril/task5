@@ -8,6 +8,6 @@ import lombok.*;
 @Setter
 @EqualsAndHashCode
 public class Position {
-    int boardRow;
-    int boardColumn;
+	int boardRow;
+	int boardColumn;
 }

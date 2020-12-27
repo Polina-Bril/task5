@@ -7,5 +7,5 @@ import com.itransition.myTicTacToe.domain.Player;
 
 @Repository
 public interface PlayerRepository extends CrudRepository<Player, Long> {
-    Player findOneByUserName(String userName);
+	Player findOneByUserName(String userName);
 }

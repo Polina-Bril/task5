@@ -150,7 +150,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 scope.movesInGame = data;
                 scope.playerMoves = [];
 
-                //paint the board with positions from the retrieved moves
                 angular.forEach(scope.movesInGame, function(move) {
                     scope.rows[move.boardRow - 1][move.boardColumn - 1].letter = move.playerPieceCode;
                 });
@@ -158,7 +157,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 scope.errorMessage = "Failed to load moves in game"
             });
         }
-//       setInterval(getMoveHistory(), 2);
 
         function checkPlayerTurn() {
             return http.get('/move/turn').success(function (data) {
@@ -172,7 +170,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
 
         scope.nextMoveData = []
 
-        // COMPUTER IS A SECOND PLAYER
         if(!scope.gameProperties.secondPlayer) {
             http.get("/move/autocreate").success(function (data, status, headers, config) {
                 scope.nextMoveData = data;
@@ -180,7 +177,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                     var gameStatus = scope.movesInGame[scope.movesInGame.length - 1].gameStatus;
                     if (gameStatus != 'IN_PROGRESS') {
                         alert(gameStatus);
-//                        window.location = '/#/player/panel';
                         
                     }
                 });
@@ -188,7 +184,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 scope.errorMessage = "Can't send the move"
             });
 
-            // SECOND PLAYER IS A REAL USER
         } else {
           console.log(' another player move');
         }
@@ -236,7 +231,6 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
                 var params = {'boardRow': boardRow, 'boardColumn': boardColumn}
 
                 if (checkIfBoardCellAvailable(boardRow, boardColumn) == true) {
-                    // if player has a turn
                     if (scope.playerTurn == true) {
 
                         http.post("/move/create", params, {
@@ -268,6 +262,3 @@ gameModule.controller('gameController', ['$rootScope', '$routeParams', '$scope',
 
     }
 ]);
-
-
-

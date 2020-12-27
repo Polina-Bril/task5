@@ -6,19 +6,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Response<T> {
-    private T object;
-    private Status status;
+	private T object;
+	private Status status;
 
-    public Response(T object, Status status) {
-        this.object = object;
-        this.status = status;
-    }
+	public Response(T object, Status status) {
+		this.object = object;
+		this.status = status;
+	}
 
-    public enum Status {
-        CREATED,
-        NOT_CREATED,
-        RECEIVED,
-        NOT_RECEIVED
-    }
+	public enum Status {
+		CREATED, NOT_CREATED, RECEIVED, NOT_RECEIVED
+	}
 
 }

@@ -15,10 +15,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class MoveDTO {
 
-    private int boardColumn;
-    private int boardRow;
-    private Date created;
-    private String userName;
-    private GameStatus gameStatus;
-    private Piece playerPieceCode;
+	private int boardColumn;
+	private int boardRow;
+	private Date created;
+	private String userName;
+	private GameStatus gameStatus;
+	private Piece playerPieceCode;
 }
